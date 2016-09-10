@@ -138,7 +138,7 @@ def process(week):
 def writeresult(theweek):
     #将结果写入推荐表中 recommand2和recommand1一样，都是每天更新的表
     #首先将昨天的记录删除
-    db = MySQLdb.connect("localhost", "root", "", "respire",charset="utf8")
+    db = MySQLdb.connect("localhost", "root", "root", "respire",charset="utf8")
     cursor = db.cursor()
     sql="DELETE FROM recommand2"
     try:
@@ -212,12 +212,12 @@ def writeresult(theweek):
                     restime = int(r[0])
                     sql = 'INSERT INTO recommand2(hour,tag,userid)VALUES (%s,%s,%s)'
                     try:
-                        value = [restime, "运动健身", userid]
+                        value = [restime, "sports", userid]
                         cursor.execute(sql, value)
                         db.commit()
-                    except:
+                    except Exception,e:
                         db.rollback()
-            except:
+            except Exception,e:
                 print "Error: unable to fecth data"
         except:
             print "Error: unable to fecth data"
