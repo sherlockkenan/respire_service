@@ -12,7 +12,7 @@ def loaddata():
     #line[7]:tag
     #recomsport:
     #userid week time freq
-    db = MySQLdb.connect("localhost", "root", "root", "respire",charset="utf8")
+    db = MySQLdb.connect("localhost", "root","root", "respire",charset="utf8")
     cursor = db.cursor()
     sql = "SELECT * from datanow"
     try:
@@ -138,7 +138,7 @@ def process(week):
 def writeresult(theweek):
     #将结果写入推荐表中 recommand2和recommand1一样，都是每天更新的表
     #首先将昨天的记录删除
-    db = MySQLdb.connect("localhost", "root", "root", "respire",charset="utf8")
+    db = MySQLdb.connect("localhost", "root", "", "respire",charset="utf8")
     cursor = db.cursor()
     sql="DELETE FROM recommand2"
     try:
