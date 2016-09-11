@@ -215,7 +215,7 @@ def writeresult(theweek):
                         value = [restime, "sports", userid]
                         cursor.execute(sql, value)
                         db.commit()
-                    except Exception,e:
+                    except:
                         db.rollback()
             except Exception,e:
                 print "Error: unable to fecth data"
